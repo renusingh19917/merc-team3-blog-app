@@ -31,7 +31,7 @@ const AppRoute = () => {
                     <Route path="logout" element={<Logout />} />
                     <Route path="profile" element={<UserProfile />} />
                     <Route path="*" element={<Page404/>}/>
-                    <Route path="register" component={Register} />
+                    <Route path="register" element= {<Register />}/>
                   </Routes>
             <div>
                 <Footer></Footer>

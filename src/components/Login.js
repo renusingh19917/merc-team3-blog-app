@@ -1,54 +1,60 @@
-import React, { useState } from 'react';
-import '../styles/Login.css' 
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import AppUser from "../models/AppUser";
+import { login } from "../services/UserService";
+import '../styles/Login.css'; 
 
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = () => {
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+    const [loginData, setLoginData] = useState(new AppUser());
+    const [failedLogin, setFailedLogin] = useState('');
+    const navigate = useNavigate();
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    const handleLogin = (evt) => {
+        console.log(evt.target);
+        setLoginData({
+            ...loginData,
+            [evt.target.name]: evt.target.value
+        });
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const submitLogin = (evt) => {
+        console.log(loginData);
+        login(loginData)
+            .then((resp) => {
+                if (resp.data[0].username === loginData.username) {
+                    localStorage.setItem('currentUser', JSON.stringify(resp.data[0]));
+                    setLoginData('');
+                    setFailedLogin('');
+                    alert(`Hi ${JSON.parse(localStorage.getItem('currentUser')).username}! You've logged in successfully. Redirecting you to home...`);
+                    navigate('/home');
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                setLoginData({ username: '', password: '' });
+                setFailedLogin('Invalid credentials!');
+                localStorage.removeItem('currentUser');
+            });
+        evt.preventDefault();
+    };
 
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
-
-  return (
-    <div className="login-container"> 
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group"> 
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
+    return (
+        <div>
+            <h1>Login</h1>
+            <div>
+                <form onSubmit={submitLogin}>
+                    <h3> Username </h3>
+                    <input type="text" placeholder="Your username" name="username" value={loginData.username} onChange={handleLogin} />
+                    <h3> Password </h3>
+                    <input type="password" placeholder= "Your password" name="password" value={loginData.password} onChange={handleLogin} />
+                    <input type="submit" name="login" value="Login" />
+                </form>
+            </div>
+            <p>{failedLogin}</p>
         </div>
-        <div className="form-group"> 
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div className="button-container"> 
-          <button type="submit">Login</button>
-        </div>
-      </form>
-    </div>
-  );
-}
+    );
+};
 
 export default Login;
 
