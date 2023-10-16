@@ -1,22 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Page404 from "./components/Page404";
-import Toolbar from "./components/Toolbar";
-import Footer from "./components/Footer";
-import BlogDetails from "./components/BlogDetails";
-import BlogList from "./components/BlogList";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Logout from "./components/Logout";
-import UserProfile from "./components/UserProfile";
-import NewBlog from "./components/NewBlog";
-
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Page404 from './components/Page404';
+import Toolbar from './components/Toolbar';
+import Footer from './components/Footer';
+import BlogDetails from './components/BlogDetails';
+import BlogList from './components/BlogList';
+import Login from './components/Login';
+import Register from './components/Register';
+import Logout from './components/Logout';
+import UserProfile from './components/UserProfile';
+import NewBlog from './components/NewBlog';
 
 const AppRoute = () => {
-  
-    return (
+  return (
+    <div>
+      <BrowserRouter>
         <div>
-
             {/* <h1>App Routes</h1> */}
             <BrowserRouter>
             <div>
@@ -38,7 +38,9 @@ const AppRoute = () => {
             </div>
             </BrowserRouter>
         </div>
-    );
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default AppRoute;
