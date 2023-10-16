@@ -46,8 +46,8 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-=======
 
+/* 
     width: 400px;
 
     margin: 20px auto;
@@ -66,9 +66,9 @@ button:hover {
 
     flex-direction: column;
 
-    padding-right: 20px;
+    padding-right: 20px; */
 
-  }
+  
 
  
 

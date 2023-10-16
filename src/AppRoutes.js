@@ -15,8 +15,6 @@ import NewBlog from './components/NewBlog';
 const AppRoute = () => {
   return (
     <div>
-      <BrowserRouter>
-        <div>
             {/* <h1>App Routes</h1> */}
             <BrowserRouter>
             <div>
@@ -37,8 +35,6 @@ const AppRoute = () => {
                 <Footer></Footer>
             </div>
             </BrowserRouter>
-        </div>
-      </BrowserRouter>
     </div>
   );
 };
