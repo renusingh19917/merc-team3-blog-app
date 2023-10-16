@@ -17,21 +17,26 @@ const AppRoute = () => {
     <div>
       <BrowserRouter>
         <div>
-          <Toolbar></Toolbar>
-        </div>
-        <Routes>
-          <Route path="home" element={<Home />} />
-          <Route path="blog-list" element={<BlogList />} />
-          <Route path="BlogDetails/:id" element={<BlogDetails />} />
-          <Route path="new-blog" element={<NewBlog />} />
-          <Route path="login" element={<Login/>} />
-          <Route path="logout" element={<Logout />} />
-          <Route path="profile" element={<UserProfile />} />
-          <Route path="register" element={<Register />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
-        <div>
-          <Footer></Footer>
+            {/* <h1>App Routes</h1> */}
+            <BrowserRouter>
+            <div>
+                <Toolbar></Toolbar>
+            </div>
+                  <Routes>
+                    <Route exact path="home" element={<Home />}/>
+                    <Route path="blog-list" element={<BlogList />}/>
+                    <Route path="BlogDetails/:id" element={<BlogDetails/>}/>
+                    <Route path="new-blog" element={<NewBlog />} />
+                    <Route path="login" element={<Login />}></Route>
+                    <Route path="logout" element={<Logout />} />
+                    <Route path="profile" element={<UserProfile />} />
+                    <Route path="*" element={<Page404/>}/>
+                    <Route path="register" element= {<Register />}/>
+                  </Routes>
+            <div>
+                <Footer></Footer>
+            </div>
+            </BrowserRouter>
         </div>
       </BrowserRouter>
     </div>

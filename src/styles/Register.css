@@ -46,3 +46,98 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+=======
+
+    width: 400px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    background-color: #fff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding-right: 20px;
+
+  }
+
+ 
+
+ 
+
+.form-group {
+
+  margin-bottom: 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+ 
+
+label {
+
+  font-weight: bold;
+
+  margin-bottom: 5px;
+
+}
+
+ 
+
+input {
+
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+
+  font-size: 16px;
+
+  margin-top: 5px;
+
+}
+
+ 
+
+button {
+
+  background-color: #007bff;
+
+  color: #fff;
+
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  margin-top: 10px;
+
+}
+
+ 
+
+button:hover {
+
+  background-color: #0056b3;
+
+}
