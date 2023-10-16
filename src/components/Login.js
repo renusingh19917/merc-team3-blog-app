@@ -40,9 +40,9 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="login-container">
             <h1>Login</h1>
-            <div>
+            <div >
                 <form onSubmit={submitLogin}>
                     <h3> Username </h3>
                     <input type="text" placeholder="Your username" name="username" value={loginData.username} onChange={handleLogin} />
