@@ -7,22 +7,18 @@ const BlogDetails = () => {
     const [blog, setBlog] = useState({});
     const [comments, setComments] = useState([]);
     const [writerDetails, setWriterDetails] = useState({});
-    const [newComment, setNewComment] = useState(''); // State to store the new comment
+    const [newComment, setNewComment] = useState(''); 
 
     const handleCommentChange = (e) => {
         setNewComment(e.target.value);
     };
 
     const handleCommentSubmit = () => {
-        // Create a new comment object
         const commentData = {
-            postId: blog.id,
-            name: writerDetails.name, // Assuming you want to use the writer's name
-            email: writerDetails.email, // Assuming you want to use the writer's email
+            postId: blog.id, 
             body: newComment,
         };
 
-        // Send the new comment to the backend
         fetch('https://jsonplaceholder.typicode.com/comments', {
             method: 'POST',
             headers: {
@@ -32,9 +28,8 @@ const BlogDetails = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            // Update the comments with the new comment
             setComments([...comments, data]);
-            setNewComment(''); // Clear the input field
+            setNewComment(''); 
         })
         .catch((error) => {
             console.error("Error posting a new comment:", error);
@@ -42,7 +37,7 @@ const BlogDetails = () => {
     };
 
     useEffect(() => {
-        // Fetch blog details
+        //Fetch blog details
         fetch(`https://jsonplaceholder.typicode.com/posts/${blogParam.id}`)
             .then((response) => response.json())
             .then((data) => {
